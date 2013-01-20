@@ -1,33 +1,46 @@
-<h1>Listing apartments</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Address2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @apartments.each do |apartment| %>
-  <tr>
-    <td><%= apartment.name %></td>
-    <td><%= apartment.address %></td>
-    <td><%= apartment.address2 %></td>
-    <td><%= apartment.city %></td>
-    <td><%= apartment.state %></td>
-    <td><%= apartment.zip %></td>
-    <td><%= link_to 'Show', apartment %></td>
-    <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-    <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Apartment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:address2) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= link_to apartment.id, apartment_path(apartment) %></td>
+        <td><%= apartment.name %></td>
+        <td><%= apartment.address %></td>
+        <td><%= apartment.address2 %></td>
+        <td><%= apartment.city %></td>
+        <td><%= apartment.state %></td>
+        <td><%= apartment.zip %></td>
+        <td><%=l apartment.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_apartment_path(apartment), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      apartment_path(apartment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Apartment', new_apartment_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_apartment_path,
+            :class => 'btn btn-primary' %>
