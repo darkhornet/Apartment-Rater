@@ -25,6 +25,11 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
+group :development, :test, :staging do
+  gem 'rspec-rails', '~> 2.8.0'
+  gem 'rspec', '~> 2.8.0'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -41,3 +46,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'simplecov', :require => false, :group => :test
