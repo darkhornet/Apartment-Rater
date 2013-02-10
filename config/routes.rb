@@ -1,4 +1,7 @@
 ApartmentRater::Application.routes.draw do
+  resources :categories
+
+
   resources :apartments
 
 
