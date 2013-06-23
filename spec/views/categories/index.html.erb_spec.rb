@@ -5,11 +5,13 @@ describe "categories/index" do
     assign(:categories, [
       stub_model(Category,
         :name => "Name",
-        :type => "Type"
+        :type => "Type",
+        :created_at => Time.now
       ),
       stub_model(Category,
         :name => "Name",
-        :type => "Type"
+        :type => "Type",
+        :created_at => Time.now
       )
     ])
   end
