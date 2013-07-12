@@ -12,23 +12,23 @@ gem 'activerecord-postgresql-adapter'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'less-rails'
-  gem 'coffee-rails', '~> 4.0.0'
+gem 'less-rails'
+gem 'coffee-rails', '~> 4.0.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-  gem 'therubyracer'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', :platforms => :ruby
+gem 'therubyracer'
 
-  gem 'uglifier', '>= 1.0.3'
+gem 'uglifier', '>= 1.0.3'
 
-  gem 'twitter-bootstrap-rails'
-end
+gem 'twitter-bootstrap-rails', '2.2.6'
 
 group :development, :test, :staging do
   gem 'rspec-rails', '~> 2.8.0'
   gem 'rspec', '~> 2.8.0'
 end
+
+gem 'protected_attributes'
 
 gem 'jquery-rails'
 
