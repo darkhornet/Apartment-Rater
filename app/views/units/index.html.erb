@@ -19,7 +19,7 @@
     <% @units.each do |unit| %>
       <tr>
         <td><%= link_to unit.id, unit_path(unit) %></td>
-        <td><%= unit.apartment_id %></td>
+        <td><%= unit.apartment.name %></td>
         <td><%= unit.bedrooms %></td>
         <td><%= unit.bathrooms %></td>
         <td><%= unit.sqft %></td>
