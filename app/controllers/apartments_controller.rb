@@ -40,7 +40,7 @@ class ApartmentsController < ApplicationController
   # POST /apartments
   # POST /apartments.json
   def create
-    @apartment = Apartment.new(params[:apartment])
+    @apartment = Apartment.new(apartment_params)
 
     respond_to do |format|
       if @apartment.save
@@ -59,7 +59,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
 
     respond_to do |format|
-      if @apartment.update_attributes(params[:apartment])
+      if @apartment.update_attributes(apartment_params)
         format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
         format.json { head :no_content }
       else
@@ -79,5 +79,10 @@ class ApartmentsController < ApplicationController
       format.html { redirect_to apartments_url }
       format.json { head :no_content }
     end
+  end
+
+private
+  def apartment_params
+    params[:apartment].permit(:name, :address, :address2, :city, :state, :zip)
   end
 end

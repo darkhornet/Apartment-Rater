@@ -80,4 +80,10 @@ class UnitsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+private
+  def unit_params
+    params[:unit].permit(:apartment_id, :bathrooms, :bedrooms, :price, :sqft)
+  end
 end

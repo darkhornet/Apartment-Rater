@@ -28,8 +28,6 @@ group :development, :test, :staging do
   gem 'rspec', '~> 2.8.0'
 end
 
-gem 'protected_attributes'
-
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
