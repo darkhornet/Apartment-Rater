@@ -5,8 +5,9 @@ ApartmentRater::Application.routes.draw do
   resources :categories
 
 
-  resources :apartments
-
+  resources :apartments do
+    resources :units
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
