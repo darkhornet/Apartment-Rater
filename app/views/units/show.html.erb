@@ -15,14 +15,13 @@
   <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
   <dd><%= @unit.price %></dd>
 </dl>
-
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              units_path, :class => 'btn'  %>
+              apartment_units_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_unit_path(@unit), :class => 'btn' %>
+              edit_apartment_unit_path(@unit.apartment, @unit), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              unit_path(@unit),
+              apartment_unit_path(@unit.apartment, @unit),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

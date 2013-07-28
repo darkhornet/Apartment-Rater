@@ -15,7 +15,7 @@ describe "units/edit" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => units_path(@unit), :method => "post" do
+    assert_select "form", :action => apartment_units_path(@unit), :method => "post" do
       assert_select "input#unit_apartment_id", :name => "unit[apartment_id]"
       assert_select "input#unit_bedrooms", :name => "unit[bedrooms]"
       assert_select "input#unit_bathrooms", :name => "unit[bathrooms]"

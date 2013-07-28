@@ -40,7 +40,7 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.json
   def create
-    @unit = Unit.new(params[:unit])
+    @unit = Unit.new(unit_params)
 
     respond_to do |format|
       if @unit.save
@@ -59,7 +59,7 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
 
     respond_to do |format|
-      if @unit.update_attributes(params[:unit])
+      if @unit.update_attributes(unit_params)
         format.html { redirect_to @unit, notice: 'Unit was successfully updated.' }
         format.json { head :no_content }
       else
@@ -76,7 +76,7 @@ class UnitsController < ApplicationController
     @unit.destroy
 
     respond_to do |format|
-      format.html { redirect_to units_url }
+      format.html { redirect_to apartment_units_url }
       format.json { head :no_content }
     end
   end

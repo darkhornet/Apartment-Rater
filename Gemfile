@@ -24,6 +24,7 @@ gem 'uglifier', '>= 1.0.3'
 gem 'twitter-bootstrap-rails', '2.2.6'   # Temporary workaround until twitter bootstrap rails updates to handle rails 4.
 
 group :development, :test, :staging do
+  gem 'pry-rails', :group => :development
   gem 'rspec-rails', '~> 2.8.0'
   gem 'rspec', '~> 2.8.0'
 end

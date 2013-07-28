@@ -31,28 +31,24 @@
 </div>
 
 
-<%- model_class = Unit -%>
+<%- unit_class = Unit -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%=t '.title', :default => unit_class.model_name.human.pluralize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:apartment_id) %></th>
-      <th><%= model_class.human_attribute_name(:bedrooms) %></th>
-      <th><%= model_class.human_attribute_name(:bathrooms) %></th>
-      <th><%= model_class.human_attribute_name(:sqft) %></th>
-      <th><%= model_class.human_attribute_name(:price) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= unit_class.human_attribute_name(:bedrooms) %></th>
+      <th><%= unit_class.human_attribute_name(:bathrooms) %></th>
+      <th><%= unit_class.human_attribute_name(:sqft) %></th>
+      <th><%= unit_class.human_attribute_name(:price) %></th>
+      <th><%= unit_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @apartment.units.each do |unit| %>
       <tr>
-        <td><%= link_to unit.id, unit_path(unit) %></td>
-        <td><%= unit.apartment.name %></td>
         <td><%= unit.bedrooms %></td>
         <td><%= unit.bathrooms %></td>
         <td><%= unit.sqft %></td>
@@ -60,9 +56,9 @@
         <td><%=l unit.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_unit_path(unit), :class => 'btn btn-mini' %>
+                      edit_apartment_unit_path(@apartment, unit), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      unit_path(unit),
+                      apartment_unit_path(unit),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
