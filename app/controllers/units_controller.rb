@@ -25,6 +25,7 @@ class UnitsController < ApplicationController
   # GET /units/new.json
   def new
     @unit = Unit.new
+    @apartment = Apartment.find(params[:apartment_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class UnitsController < ApplicationController
   # GET /units/1/edit
   def edit
     @unit = Unit.find(params[:id])
+    @apartment = @unit.apartment
   end
 
   # POST /units
@@ -44,7 +46,7 @@ class UnitsController < ApplicationController
 
     respond_to do |format|
       if @unit.save
-        format.html { redirect_to @unit, notice: 'Unit was successfully created.' }
+        format.html { redirect_to apartment_unit_url(@unit.apartment, @unit), notice: 'Unit was successfully created.' }
         format.json { render json: @unit, status: :created, location: @unit }
       else
         format.html { render action: "new" }
@@ -60,7 +62,7 @@ class UnitsController < ApplicationController
 
     respond_to do |format|
       if @unit.update_attributes(unit_params)
-        format.html { redirect_to @unit, notice: 'Unit was successfully updated.' }
+        format.html { redirect_to apartment_unit_url(@unit.apartment, @unit), notice: 'Unit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
