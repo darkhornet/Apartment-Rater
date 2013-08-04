@@ -4,16 +4,10 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:apartment_id) %>:</strong></dt>
-  <dd><%= @unit.apartment_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:bedrooms) %>:</strong></dt>
-  <dd><%= @unit.bedrooms %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:bathrooms) %>:</strong></dt>
-  <dd><%= @unit.bathrooms %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sqft) %>:</strong></dt>
-  <dd><%= @unit.sqft %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= @unit.price %></dd>
+  <%= show_data(@unit, :bedrooms) %>
+  <%= show_data(@unit, :bathrooms) %>
+  <%= show_data(@unit, :sqft) %>
+  <%= show_data(@unit, :price) %>
 </dl>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
