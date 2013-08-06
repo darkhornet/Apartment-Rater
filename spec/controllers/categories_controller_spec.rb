@@ -110,8 +110,8 @@ describe CategoriesController do
         # specifies that the Category created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Category.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => category.to_param, :category => {'these' => 'params'}}, valid_session
+        Category.any_instance.should_receive(:update_attributes).with({'name' => 'params'})
+        put :update, {:id => category.to_param, :category => {'name' => 'params'}}, valid_session
       end
 
       it "assigns the requested category as @category" do
