@@ -1,20 +1,18 @@
 require 'spec_helper'
 
-describe "Units" do
-  let (:apartment) { Apartment.create }
-
-  describe "GET /units" do
-    it "works" do
+describe "Apartments" do
+  describe "List" do
+    it "shows all apartments" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get apartment_units_path apartment
+      visit apartments_path
       response.status.should be(200)
     end
   end
 
-  describe "POST /units" do
+  describe "Create a new apartment" do
     it "works" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      post :create
+#      visit apartments_path
       response.status.should be(200)
     end
   end
