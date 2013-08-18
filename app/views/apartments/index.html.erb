@@ -18,7 +18,7 @@
     <% @apartments.each do |apartment| %>
       <tr>
         <td><%= link_to apartment.name, apartment_path(apartment) %></td>
-        <td><%= apartment.address + " " + apartment.address2 %></td>
+        <td><%= apartment.address.to_s + " " + apartment.address2.to_s %></td>
         <td><%= apartment.city %></td>
         <td><%= apartment.state %></td>
         <td><%= apartment.zip %></td>

@@ -27,6 +27,8 @@ group :development, :test, :staging do
   gem 'pry-rails', :group => :development
   gem 'rspec-rails', '~> 2.8.0'
   gem 'rspec', '~> 2.8.0'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 gem 'jquery-rails'
