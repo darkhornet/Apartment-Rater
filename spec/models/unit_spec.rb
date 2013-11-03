@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Unit do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "instantiates" do
+    expect { Unit.new }.not_to raise_exception
+  end
 end

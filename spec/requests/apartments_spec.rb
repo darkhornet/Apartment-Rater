@@ -43,10 +43,4 @@ describe "Apartments" do
     end
   end
 
-  describe "Delete an existing apartment", :type => :feature do
-    it "removes the record" do
-      # visit delete_apartment_path @apartment
-      # page.should_not have_content("Orleans Place")
-    end
-  end
 end

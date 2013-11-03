@@ -11,7 +11,7 @@
 </dl>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              apartment_units_path, :class => 'btn'  %>
+              apartment_path(@unit.apartment), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_apartment_unit_path(@unit.apartment, @unit), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

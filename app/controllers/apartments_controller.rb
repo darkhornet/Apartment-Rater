@@ -3,33 +3,18 @@ class ApartmentsController < ApplicationController
   # GET /apartments.json
   def index
     @apartments = Apartment.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @apartments }
-    end
   end
 
   # GET /apartments/1
   # GET /apartments/1.json
   def show
     @apartment = Apartment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @apartment }
-    end
   end
 
   # GET /apartments/new
   # GET /apartments/new.json
   def new
     @apartment = Apartment.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @apartment }
-    end
   end
 
   # GET /apartments/1/edit
@@ -42,14 +27,10 @@ class ApartmentsController < ApplicationController
   def create
     @apartment = Apartment.new(apartment_params)
 
-    respond_to do |format|
-      if @apartment.save
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
-        format.json { render json: @apartment, status: :created, location: @apartment }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @apartment.errors, status: :unprocessable_entity }
-      end
+    if @apartment.save
+      redirect_to @apartment, notice: 'Apartment was successfully created.'
+    else
+      render action: "new"
     end
   end
 
@@ -58,14 +39,10 @@ class ApartmentsController < ApplicationController
   def update
     @apartment = Apartment.find(params[:id])
 
-    respond_to do |format|
-      if @apartment.update_attributes(apartment_params)
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @apartment.errors, status: :unprocessable_entity }
-      end
+    if @apartment.update_attributes(apartment_params)
+      redirect_to @apartment, notice: 'Apartment was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
@@ -75,10 +52,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
     @apartment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to apartments_url }
-      format.json { head :no_content }
-    end
+    redirect_to apartments_url
   end
 
 private

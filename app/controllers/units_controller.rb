@@ -43,7 +43,7 @@ class UnitsController < ApplicationController
   # POST /units.json
   def create
     @unit = Unit.new(unit_params)
-
+binding.pry
     respond_to do |format|
       if @unit.save
         format.html { redirect_to apartment_unit_url(@unit.apartment, @unit), notice: 'Unit was successfully created.' }
