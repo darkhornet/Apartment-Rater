@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130623045547) do
+ActiveRecord::Schema.define(version: 20131104031057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apartment_ratings", force: true do |t|
+    t.integer  "apartment_id"
+    t.integer  "category_id"
+    t.float    "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "apartments", force: true do |t|
     t.string   "name"
@@ -29,9 +37,17 @@ ActiveRecord::Schema.define(version: 20130623045547) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "category_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "unit_ratings", force: true do |t|
+    t.integer  "unit_id"
+    t.integer  "category_id"
+    t.float    "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "units", force: true do |t|
