@@ -8,7 +8,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
-    @apartment = Apartment.find(params[:id])
+    @apartment = Apartment.find params[:id]
   end
 
   # GET /apartments/new
@@ -19,7 +19,7 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1/edit
   def edit
-    @apartment = Apartment.find(params[:id])
+    @apartment = Apartment.find params[:id]
   end
 
   # POST /apartments
@@ -37,7 +37,7 @@ class ApartmentsController < ApplicationController
   # PUT /apartments/1
   # PUT /apartments/1.json
   def update
-    @apartment = Apartment.find(params[:id])
+    @apartment = Apartment.find params[:id]
 
     if @apartment.update_attributes(apartment_params)
       redirect_to @apartment, notice: 'Apartment was successfully updated.'
@@ -49,10 +49,14 @@ class ApartmentsController < ApplicationController
   # DELETE /apartments/1
   # DELETE /apartments/1.json
   def destroy
-    @apartment = Apartment.find(params[:id])
+    @apartment = Apartment.find params[:id]
     @apartment.destroy
 
     redirect_to apartments_url
+  end
+
+  def rate
+    @apartment = Apartment.find params[:id]
   end
 
 private
