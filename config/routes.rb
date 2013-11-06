@@ -6,8 +6,11 @@ ApartmentRater::Application.routes.draw do
 
 
   resources :apartments do
+    
     resources :units
   end
+
+  get 'apartments/:id/rate' => 'apartments#rate'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
